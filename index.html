@@ -1,95 +1,210 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>台北美術館</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>台北美術館</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", sans-serif;
+    }
+    header {
+      background-color: #fff;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+    }
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+    .logo {
+      height: 50px;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      height: 3px;
+      width: 25px;
+      background: #333;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    nav a {
+      text-decoration: none;
+      color: #333;
+      padding: 8px;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+    }
+    .news, .time, .featured, .video {
+      padding: 20px;
+    }
+    .news ul {
+      padding-left: 20px;
+    }
+    .featured {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .feature-item {
+      flex: 1 1 calc(33.333% - 20px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+    .feature-item img {
+      width: 100%;
+      height: auto;
+    }
+    iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+    }
+    .footer-links, .footer-info {
+      padding: 20px;
+      text-align: center;
+    }
+    .footer-links a {
+      margin: 0 10px;
+      display: inline-block;
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+      nav {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+      }
+      nav.active {
+        display: flex;
+      }
+      .feature-item {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <img src="img/logo.jpg" alt="台北美術館標誌" class="logo">
-            <nav>
-                <a href="#">參展</a>
-                <a href="#">展覽</a>
-                <a href="#">活動</a>
-                <a href="#">典藏</a>
-                <a href="#">研究出版</a>
-                <a href="#">學習</a>
-                <a href="#">關於我們</a>
-                <a href="#" class="lang-switch" aria-label="切換語言：中文或英文">中文/英文</a>
-            </nav>
-        </div>
-    </header>
+  <header>
+    <div class="navbar">
+      <img src="img/logo.jpg" alt="台北美術館標誌" class="logo">
+      <div class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="navbar">
+        <a href="#">參展</a>
+        <a href="#">展覽</a>
+        <a href="#">活動</a>
+        <a href="#">典藏</a>
+        <a href="#">研究出版</a>
+        <a href="#">學習</a>
+        <a href="#">關於我們</a>
+        <a href="#" class="lang-switch" aria-label="切換語言：中文或英文">中文/英文</a>
+      </nav>
+    </div>
+  </header>
 
-    <section class="hero">
-        <div class="hero-banner">
-            <img src="./img/1.jpg"
-        </div>
-    </section>
+  <section class="hero">
+    <div class="hero-banner">
+      <img src="./img/1.jpg" alt="展覽橫幅">
+    </div>
+  </section>
 
-    <section class="news">
-        <h2>最新消息</h2>
-        <ul>
-            <li>2024/12/16｜失物招領｜台北市立美術館113年11月份受理拾得遺書物簡易公告期滿發還拾得人清冊</li>
-            <li>2024/12/13｜新聞發佈｜2021 臺北獎首獎林彥君個展｜新聞稿</li>
-            <li>2024/12/06｜新聞發佈｜2024 北美館日：《漸見》移動劇場演出 vs 館方首度公開循環計畫 | 新聞稿</li>
-            <li>2024/12/03｜一般公告｜臺北市立美術館兒藝中心志工招新錄取名單</li>
-            <li>2024/12/01｜失物招領｜臺北市立美術館113年12月份受理拾得遺失物簡易公告招領清冊</li>
-        </ul>
-        <a href="#">more &gt;</a>
-    </section>
+  <section class="news">
+    <h2>最新消息</h2>
+    <ul>
+      <li>2024/12/16｜失物招領｜台北市立美術館113年11月份受理拾得遺書物簡易公告期滿發還拾得人清冊</li>
+      <li>2024/12/13｜新聞發佈｜2021 臺北獎首獎林彥君個展｜新聞稿</li>
+      <li>2024/12/06｜新聞發佈｜2024 北美館日：《漸見》移動劇場演出 vs 館方首度公開循環計畫 | 新聞稿</li>
+      <li>2024/12/03｜一般公告｜臺北市立美術館兒藝中心志工招新錄取名單</li>
+      <li>2024/12/01｜失物招領｜臺北市立美術館113年12月份受理拾得遺失物簡易公告招領清冊</li>
+    </ul>
+    <a href="#">more &gt;</a>
+  </section>
 
-    <section class="time">
-        <h2>參觀資訊</h2>
-        <dl>
-            <dt>週一</dt><dd>休館</dd>
-            <dt>週二至週日</dt><dd>9:30-17:30</dd>
-            <dt>週六</dt><dd>9:30-20:30</dd>
-        </dl>
-        <a href="#">more &gt;</a>
-    </section>
+  <section class="time">
+    <h2>參觀資訊</h2>
+    <dl>
+      <dt>週一</dt><dd>休館</dd>
+      <dt>週二至週日</dt><dd>9:30-17:30</dd>
+      <dt>週六</dt><dd>9:30-20:30</dd>
+    </dl>
+    <a href="#">more &gt;</a>
+  </section>
 
-    <section class="featured">
-        <div class="feature-item">
-            <img src="img/2.jpg" alt="百年膠彩畫作，展示作品">
-            <h3>喧囂的孤獨：臺灣百年膠彩寫道</h3>
-            <p>臺灣經歷不同的政治發展時期，使膠彩畫在定名及定位上有諸多複雜的擺盪，也影響其傳承發展，先後經歷日 …</p>
-        </div>
-        <div class="feature-item">
-            <img src="img/3.jpg" alt="林彥君的雕塑與空間藝術">
-            <h3>洄響 | 林彥君</h3>
-            <p>場域「洄鳴」由作品「夢鳴」與「洄道」一小時的生息循環構成，以空間、聲音與雕塑編織著林彥君與一隻小蜻蜓…</p>
-        </div>
-        <div class="feature-item">
-            <img src="img/4.jpg" alt="展覽放映計畫作品">
-            <h3>開放式未來：TFAM放映計畫</h3>
-            <p>「開放式結局：TFAM放映計畫」試圖從廣為人知的電影/戲劇概念切入，通過帶狀展出期程內不同主題、片單…</p>
-        </div>
-    </section>
- 
-    <section class="video">
-        <h2>北美館｜臺灣的光與影：臺灣百年膠彩</h2>
-        <iframe src="https://www.youtube.com/embed/video_id" title="台灣百年膠彩介紹影片"></iframe>
-    </section>
+  <section class="featured">
+    <div class="feature-item">
+      <img src="img/2.jpg" alt="百年膠彩畫作，展示作品">
+      <h3>喧囂的孤獨：臺灣百年膠彩寫道</h3>
+      <p>臺灣經歷不同的政治發展時期，使膠彩畫在定名及定位上有諸多複雜的擺盪，也影響其傳承發展，先後經歷日 …</p>
+    </div>
+    <div class="feature-item">
+      <img src="img/3.jpg" alt="林彥君的雕塑與空間藝術">
+      <h3>洄響 | 林彥君</h3>
+      <p>場域「洄鳴」由作品「夢鳴」與「洄道」一小時的生息循環構成，以空間、聲音與雕塑編織著林彥君與一隻小蜻蜓…</p>
+    </div>
+    <div class="feature-item">
+      <img src="img/4.jpg" alt="展覽放映計畫作品">
+      <h3>開放式未來：TFAM放映計畫</h3>
+      <p>「開放式結局：TFAM放映計畫」試圖從廣為人知的電影/戲劇概念切入，通過帶狀展出期程內不同主題、片單…</p>
+    </div>
+  </section>
 
-    <footer>
-        <div class="footer-links">
-            <a href="#">聯絡我們</a>
-            <a href="#">媒體專區</a>
-            <a href="#">志工</a>
-            <a href="#">兒童藝術教育中心</a>
-            <a href="#">書店商品</a>
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-            <a href="#">TFAM APP</a>
-        </div>
-        <div class="footer-info">
-            <p>著作權所有 © 2010-2024 TFAM</p>
-            <p>104227 台北市中山北路三段181號 +886 2 2595 7656</p>
-        </div>
-    </footer>
+  <section class="video">
+    <h2>北美館｜臺灣的光與影：臺灣百年膠彩</h2>
+    <iframe src="https://www.youtube.com/embed/video_id" title="台灣百年膠彩介紹影片"></iframe>
+  </section>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#">聯絡我們</a>
+      <a href="#">媒體專區</a>
+      <a href="#">志工</a>
+      <a href="#">兒童藝術教育中心</a>
+      <a href="#">書店商品</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">YouTube</a>
+      <a href="#">TFAM APP</a>
+    </div>
+    <div class="footer-info">
+      <p>著作權所有 © 2010-2024 TFAM</p>
+      <p>104227 台北市中山北路三段181號 +886 2 2595 7656</p>
+    </div>
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('navbar');
+
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
